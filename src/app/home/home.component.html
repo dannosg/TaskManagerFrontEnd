@@ -1,0 +1,19 @@
+<mat-card *ngFor="let task of taskList$ | async" fxLayoutAlign="space-between center" fxLayoutGap="20px" @fade>
+  <span>
+    {{task.title}}
+  </span>
+  <span>
+    {{task.isDone | isDone}}
+  </span>
+  <span>
+    {{task.daysRemaining}}
+  </span>
+  <div fxLayoutGap="10px" fxLayout="column">
+    <button [routerLink]="['/edit-task', task.id]" mat-raised-button color="primary">
+      Edit
+    </button>
+    <button mat-raised-button (click)="deleteTask(task)" color="warn">
+      Delete
+    </button>
+  </div>
+</mat-card>
